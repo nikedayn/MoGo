@@ -117,8 +117,7 @@ ul {
     }
     nav {
         position: absolute;
-        width: 20%;
-        right:-100%;
+        width: 30%;
         opacity: 0;
         border-radius:0 0 0 15px;
         background-color: white;
@@ -293,19 +292,26 @@ footer hr {
     display: flex;
     justify-content: space-between;
 }
-.user_email {
+form {
+    display: flex;
+}
+input[type=email] {
     border: solid 1px #B6B6B6;
     border-right:none ;
+    padding: 0 0 0 10px;
     width: 230px;
     height: 39px;
 }
-.user_email::placeholder {
-    padding: 0 0 0 10px;
+input[type=email]::placeholder {
+    color: #B6B6B6;   
 }
-.subscribe_button {
+input[type=email]:focus {
+    outline: none;
+    border: 1px solid #555; 
+}
+input[type=submit] {
     display: inline-block;
-    position: relative;
-    left: -5px;
+    border: none;
     font-family: 'Montserrat';
     font-weight: 700;
     font-size: 14px;
@@ -322,7 +328,7 @@ footer hr {
     .footer_wrap h3 {
         font-size: 13px;
     }
-    .user_email {
+    input[type=email] {
         width: 140px;
     }
 }
@@ -331,8 +337,8 @@ footer hr {
         flex-wrap: wrap-reverse;
         justify-content: center;
     }
-    .subscribe_button {
-        width: 100px;
+    input[type=submit] {
+        width: 130px;
     }
 
 }
