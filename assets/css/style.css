@@ -2,6 +2,7 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
     color: #b6b6b6;
@@ -10,6 +11,12 @@ body {
     font-size: 15px;
     line-height: 22px;
 }
+
+.wraper {
+    position: relative;
+    overflow-x: hidden;
+}
+
 .container {
     max-width: 1250px;
     width: 100%;
@@ -17,27 +24,33 @@ body {
     padding-left: 25px;
     padding-right: 25px;
 }
+
 h1,h2,h3 {
     font-family: 'Montserrat';
     color:#333 ;
 }
+
 h3 {
     font-weight: 400;
 }
+
 ul {
     margin: 0;
     padding-left: 0;
     list-style: none;
 }
+
 /* header */
 .header {
     padding: 17px 0 20px;
 }
+
 .header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .menu-list {
     margin: 0;
     padding-left: 0;
@@ -46,6 +59,7 @@ ul {
     gap: 55px;
     font-family: 'Montserrat';
 }
+
 .menu-link {
     text-decoration: none;
     text-transform: uppercase;
@@ -55,6 +69,7 @@ ul {
     color: #95E1D3;
     transition: all 0.3s;
 }
+
 .header .logo {
     margin: 0;
     font-size: 30px;
@@ -63,24 +78,42 @@ ul {
     padding: 5px 0;
     
 }
+
 .menu-link:hover {
     color:#F38181;
     border-bottom: #F38181 solid 2px;
 }
+
 /* mobile menu */
+
 #toggle{
     display: none;
 }
+
 .toggle_btn {
     display: none;
-    position: relative;
-    
+    position: relative;  
 }
+
 #toggle:checked ~ nav {
     top: 70px;
     right: 0;
     opacity: 1;
 }
+
+#toggle:checked ~ .toggle_btn span {
+    transform: rotate(45deg);
+}
+
+#toggle:checked ~ .toggle_btn span::before {
+    top: 0;
+}
+
+#toggle:checked ~ .toggle_btn span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
 .toggle_btn span {
     display: block;
     height: 3px;
@@ -88,8 +121,10 @@ ul {
     background-color: #95E1D3;
     position: relative;
     position: absolute;
-    top:calc(50% - 1px)
+    top:calc(50% - 1px);
+    transition: transform .3s;
 }
+
 .toggle_btn span::before {
     content: '';
     display: block;
@@ -98,7 +133,9 @@ ul {
     background-color: #95E1D3;
     position: absolute;
     top: -8px;
+    transition: top .3s;
 }
+
 .toggle_btn span::after {
     content: '';
     display: block;
@@ -107,7 +144,9 @@ ul {
     background-color: #95E1D3;
     position: absolute;
     top: 8px;
+    transition: top .3s, tranform .3s;
 }
+
 @media (max-width: 768px) {
     .toggle_btn {
         display: block;
@@ -115,15 +154,17 @@ ul {
         height: 25px;
         position: relative;
     }
+
     nav {
         position: absolute;
+        right: -100%;
         width: 30%;
         opacity: 0;
         border-radius:0 0 0 15px;
         background-color: white;
         box-shadow: 0 16px 15px #888;
         padding-bottom: 30px;
-        transition: top .3s, opacity .3s ;
+        transition: opacity .3s ;
     }
 
     .menu-list {
@@ -131,10 +172,12 @@ ul {
         align-items: center;
     }
 }
+
 /* section title */
 .section-title {
     text-align: center;
 }
+
 .section-title .uptitle {
     font-family: 'Kaushan Script';
     font-style: normal;
@@ -144,6 +187,7 @@ ul {
     color: #333;
     margin: 0;
 }
+
 .section-title hr {
     width: 60px;
     height: 4px;
@@ -152,6 +196,7 @@ ul {
     color: #F38181;
     margin: 0 auto;
 }
+
 .section-title h2 {
     margin: 20px 0 40px;
     font-weight: 700;
@@ -159,18 +204,22 @@ ul {
     line-height: 37px;
     font-variant: small-caps;
 }
+
 .section-title .suptitle {
     margin-top: 45px;
 }
+
 /* services */
 .servises {
     padding: 50px 0 0;
 }
+
 .servises_list {
     margin-top: 65px;
     display: flex;
     flex-wrap: wrap;
 }
+
 .servises_list_item {
     width: calc(100% / 3);
     padding: 0 35px;
@@ -179,20 +228,24 @@ ul {
     align-items: start;
     margin-bottom: 100px;
 }
+
 .servises_list_item img {
     display: block;
     width: 37px;
     height: auto;
 }
+
 .servises_list_item h3 {
     margin: 0 0 20px;
 }
+
 @media (max-width: 992px) {
     .servises_list_item {
         width: calc(100% / 2);
         margin-bottom: 50px;
     }
 }
+
 @media (max-width: 578px) {
     .servises_list_item {
         width: 100%;
@@ -200,25 +253,31 @@ ul {
         padding: 0;
     }
 }
+
 /* team */
 .team_list {
     margin: 30px 0 80px;
     display: flex;
     column-gap: 30px;
 }
+
 .team_list_member {
     text-align: center;
 }
+
 .team_list_member h3 {
     font-size: 14px;
 }
+
 .team_list_member img {
     display: block;
     width: 100%;
 }
+
 .memder_photo_wrap {
     position: relative;
 }
+
 .memder_photo_wrap::before {
     content: '';
     width: 100%;
@@ -230,9 +289,11 @@ ul {
     transition: opacity .3s;
     background: linear-gradient(180deg, rgba(239, 139, 138, 0.8) 0%, rgba(229, 207, 130, 0.8) 100%);
 }
+
 .memder_photo_wrap:hover::before, .memder_photo_wrap:hover .social-list {
     opacity: 1;
 }
+
 .social-list{
     display: flex;
     column-gap: 1px;
@@ -243,15 +304,18 @@ ul {
     opacity: 0;
     transition: opacity .3s;
 }
+
 .social-list-item {
     width: 57px;
     height: 57px;
     background-color:#FCE38A;
 }
+
 .social-list-item:hover {
     background: #95E1D3;
     transition: background .3s;
 }
+
 .social-list-item-link {
     display: block;
     height: 100%;
@@ -259,26 +323,32 @@ ul {
     align-items: center;
     justify-content: center;
 }
+
 .social-list-item-link img {
     height: 26px;
     width: auto;
 }
+
 @media (max-width: 768px) {
     .team_list{
         flex-wrap: wrap;
     }
+
     .team_list_member {
         width: calc(50% - 15px);
     }
 }
+
 @media (max-width: 578px) {
     .team_list {
         column-gap: unset;
     }
+
     .team_list_member {
         width: 100%;
     }
 }
+
 /* footer */
 footer hr {
     border: none;
@@ -288,13 +358,16 @@ footer hr {
     background-color: #B6B6B6;
     color: #B6B6B6;
 }
+
 .footer_wrap {
     display: flex;
     justify-content: space-between;
 }
+
 form {
     display: flex;
 }
+
 input[type=email] {
     border: solid 1px #B6B6B6;
     border-right:none ;
@@ -302,13 +375,16 @@ input[type=email] {
     width: 230px;
     height: 39px;
 }
+
 input[type=email]::placeholder {
     color: #B6B6B6;   
 }
+
 input[type=email]:focus {
     outline: none;
     border: 1px solid #555; 
 }
+
 input[type=submit] {
     display: inline-block;
     border: none;
@@ -324,19 +400,23 @@ input[type=submit] {
     width: 150px;
     height: 40px;
 }
+
 @media (max-width: 768px) {
     .footer_wrap h3 {
         font-size: 13px;
     }
+
     input[type=email] {
         width: 140px;
     }
 }
+
 @media (max-width: 578px) {
     .footer_wrap {
         flex-wrap: wrap-reverse;
         justify-content: center;
     }
+
     input[type=submit] {
         width: 130px;
     }
